@@ -16,7 +16,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: nodejs_api
-      MYSQL_USER: tambahan
+      MYSQL_USER: luai
       MYSQL_PASSWORD: secretpassword
       MYSQL_ROOT_PASSWORD: 1234567890
     ports:
