@@ -1,9 +1,17 @@
-FROM python:3
+FROM golang:1.15
 
 WORKDIR /app
 
-ADD script.py .
+COPY go.mod .
+COPY go.sum .
+COPY *.go .
 
-RUN pip install pystrich
+RUN go mod tidy
 
-CMD ["python3","script.py"]
+RUN go mod download
+
+RUN go build -o main
+
+EXPOSE 8000
+
+CMD ["./main"]
